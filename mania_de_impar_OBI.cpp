@@ -2,76 +2,97 @@
 
 using namespace std;
 
-int main (){
-	
-	int n, m, qntdAdd;
+int main(){
+
+	int n, m, custo_atual=0, menor_custo = -1;
 	
 	cin >> n;
 	cin >> m;
 	
 	int matriz_cookie[n][m];
+	int matriz_teste[n][m];
+	int melhor_matriz[n][m];
 	
-	for (int l=0; l < n; l++){
+	for (int l = 0; l < n; l++){
 		
-		for (int c=0; c < m; c++){
+		for (int c = 0; c < m; c++){
 			
 			cin >> matriz_cookie[l][c];
 			
 		};
-		
+			
 	};
 	
+	//Separando dois casos: P=0 e P=1.
+	//P=0 deve ser par; P=1 deve ser ímpar.
 	
-	for (int l; l < n; l++){
+	for (int p=0; p < 2; p++){
 		
-		cout << "\n";
+		custo_atual = 0;
 		
-		for (int c=0; c < m; c++){
-			
-			
-			cout << matriz_cookie[l][c] << " ";
-			
-		};
-		
-	};
-	
-	//p=0 é para ímpar.
-	//p=1 é para par.
-
-	for (int p = 0; p < 2; p++){
-		
-		
+		//Sempre resetamos a matriz de teste.
 		for (int l = 0; l < n; l++){
 			
 			for (int c = 0; c < m; c++){
 				
-				bool deveSerImpar = ((l + c) % 2 == p);
-				bool ehImpar = (matriz_cookie[l][c] % 2 != 0);
+				matriz_teste[l][c] = matriz_cookie[l][c];
 				
-				if (deveSerImpar != ehImpar){
-					matriz_cookie[l][c]++;
-					qntdAdd++;
-				};	
-			};	
+			};
+				
 		};
+		
+		for (int l=0; l < n; l++){
+			
+			for (int c = 0; c < m; c++){
+				
+				bool deveSerPar = (l + c) % 2 == p;
+				bool ehPar = matriz_teste[l][c] % 2 == 0;
+				
+				if (deveSerPar != ehPar){
+					
+					matriz_teste[l][c]++;
+					custo_atual++;
+					
+				};
+				
+			};
+		};
+		
+		if (menor_custo == -1 || custo_atual < menor_custo){
+
+			menor_custo = custo_atual;
+			
+			for (int l = 0; l < n; l++){
+					
+				for (int c = 0; c < m; c++){
+								
+					melhor_matriz[l][c] = matriz_teste[l][c];
+							
+				};
+								
+			};
+								
+		};
+		
 	};
-		
-	cout << "\n\nQuantidade de gotas adicionadas: " << qntdAdd <<endl;
-		
-	for (int l; l < n; l++){
+	
+	
+	
+	
+	for (int l = 0; l < n; l++){
 		
 		cout << "\n";
 		
-		for (int c=0; c < m; c++){
+		for (int c = 0; c < m; c++){
 			
-			
-			cout << matriz_cookie[l][c] << " ";
+			cout << melhor_matriz[l][c] << " ";
 			
 		};
-		
+			
 	};
-		
 
 
+	cout << "\n\nQuantidade de gotas incrementadas: " << menor_custo;
+	
 	return 0;
-}
+};
