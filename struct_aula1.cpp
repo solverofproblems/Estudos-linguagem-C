@@ -31,13 +31,27 @@ struct Carro{
 
 int main (){
 	
-	Carro car1, car2;
+	//Usando Arrays, o processo de incrementar valores fica mais difícil, porém fica mais fácil visualizar.
+	Carro *carros = new Carro[4];
 	
-	car1.insereCarro("Fiat Uno", "Preto", 450, 260);
-	car2.insereCarro("Honda", "Cinza", 370, 220);
+	Carro car1, car2, car3, car4;
 	
-	car1.mostrarCarro();
-	car2.mostrarCarro();
+	carros[0] = car1; 
+	carros[1] = car2;
+	carros[2] = car3;
+	carros[3] = car4;
+	
+	carros[0].insereCarro("Fiat Uno", "Preto", 450, 260);
+	carros[1].insereCarro("Honda", "Cinza", 370, 220);
+	carros[2].insereCarro("BMV 320 I", "Preto", 500, 300);
+	carros[3].insereCarro("Honda Civic", "Branco", 470, 290);
+
+
+	for (int i=0; i < 5; i++){
+		
+		carros[i].mostrarCarro();
+		
+	;}
 	
 	
 	return 0;
