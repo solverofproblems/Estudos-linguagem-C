@@ -35,16 +35,18 @@ int main (){
 		
 	};
 	
+	//p=0 é para ímpar.
+	//p=1 é para par.
 
 	for (int p = 0; p < 2; p++){
 		
 		
-		for (int l =0; l < n; l++){
+		for (int l = 0; l < n; l++){
 			
 			for (int c = 0; c < m; c++){
 				
 				bool deveSerImpar = ((l + c) % 2 == p);
-				bool ehImpar = (matriz_cookie[l][c] % 2 != p);
+				bool ehImpar = (matriz_cookie[l][c] % 2 != 0);
 				
 				if (deveSerImpar != ehImpar){
 					matriz_cookie[l][c]++;
