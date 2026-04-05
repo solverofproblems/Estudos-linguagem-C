@@ -5,70 +5,45 @@ using namespace std;
 
 int main(){
 	
+	list<int> lista_valores;
 	
-	/*
-	//Criação básica:
 	
-	list <int> lista_nova;
-	list<int>::iterator it;
-	
-	for (int x = 0; x <= 10; x++){
+	for(int i = 0; i < 10 ; i++){
 		
-		lista_nova.push_front(x);
 		
+		lista_valores.push_front(i);
 		
 	}
 	
-	//Aqui estamos inicializando o iterator.
-	it = lista_nova.begin();
+	list<int> lista_dois;
 	
-	//Nessa linha, dizemos que o nosso iterator irá incrementar um valor na posição 5 da lista.
-	advance(it, 5);
 	
-	//Por final, incrementamos esse valor. Especificamos o nosso iterator (que tem a posição que
-	//desejamos incrementar um valor), assim como o valor que queremos que seja substituído (400),
-	//no caso.
-	lista_nova.insert(it, 400);
+	//Uma lista com 5 elementos com valor 9.
+	lista_dois.push_front(9);
+	lista_dois.push_front(9);
+	lista_dois.push_front(9);
+	lista_dois.push_front(9);
+	lista_dois.push_front(9);
 	
-	int tamanho = lista_nova.size();
 	
-	for (int y = 0; y < tamanho; y++){
+	//Aqui, a lista_valores irá RECEBER os valores da lista_dois.
+	lista_valores.merge(lista_dois);
+	
+	//Ao final, perceba que o lista_valores tem seu número de elementos aumentado
+	//Enquanto o lista_dois fica vazio.
+	
+	int tam_list = lista_valores.size();
+	
+	cout << "Tamanho da lista final: " << tam_list;
+	
+	if (lista_dois.empty()){
 		
-		cout << lista_nova.front() <<endl;
-		lista_nova.pop_front();
+		cout << "\n\nA lista_dois realmente esta vazia.";
 		
-	}
-	*/
-
-	list<int> li_new;
-	
-	//Veja que incrementamos valores aleatórios.
-	li_new.push_front(34);
-	li_new.push_front(22);
-	li_new.push_front(10);
-	li_new.push_front(5);
-	li_new.push_front(78);
-	li_new.push_front(99);
-	li_new.push_front(33);
-	li_new.push_front(100);
-	li_new.push_front(56);
-	li_new.push_front(12);
-	
-	//Aqui nós ordenamos a lista "li_new", deixado em ordem crescente.
-	li_new.sort();
-	
-	//Aqui nós invertemos a ordem, deixando em ordem decrescente.
-	li_new.reverse();
-	
-	int qntd_valor = li_new.size();
-	
-	for (int b = 0; b < qntd_valor; b++){
 		
-		cout << li_new.front() <<endl;
-		li_new.pop_front();
-		
-	}
+	};
+	
 	
 
 	return 0;
-}
+};
