@@ -76,6 +76,22 @@ int main(){
 		
 	};
 	
+	cout << "\n" << menor_custo <<endl;
+	
+	
+	for (int l = 0; l < n; l++){
+		
+		cout << "\n";
+		
+		for (int c = 0; c < m; c ++){
+			
+			cout << matriz_cookie[l][c] << " ";
+			
+		};
+		
+	};
+	
+	cout << "\n";
 	
 	
 	
@@ -91,8 +107,6 @@ int main(){
 			
 	};
 
-
-	cout << "\n\nQuantidade de gotas incrementadas: " << menor_custo;
 	
 	return 0;
 };
